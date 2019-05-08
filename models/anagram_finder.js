@@ -5,7 +5,11 @@ const AnagramFinder = function (string) {
 AnagramFinder.prototype.findAnagrams = function(wordsToCheck) {
   const chars = this.string.split('');
 
-  const result = wordsToCheck.filter((word) => {
+  const filteredWords = wordsToCheck.filter((word) => {
+    return word.length === this.string.length;
+  })
+
+  const result = filteredWords.filter((word) => {
     const wordToCheck = word.toLowerCase().split('');
     return wordToCheck.every((char) => {
       return chars.includes(char);
