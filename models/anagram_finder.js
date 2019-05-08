@@ -6,7 +6,7 @@ AnagramFinder.prototype.findAnagrams = function(wordsToCheck) {
   const chars = this.string.split('');
 
   const filteredWords = wordsToCheck.filter((word) => {
-    return word.length === this.string.length;
+    return word.length === this.string.length && word !== this.string;
   })
 
   const result = filteredWords.filter((word) => {
@@ -15,12 +15,7 @@ AnagramFinder.prototype.findAnagrams = function(wordsToCheck) {
       return chars.includes(char);
     })
   })
-  if (result[0] !== this.string) {
-    return result;
-  } else {
-    return []
-  }
-
+  return result
 }
 
 module.exports = AnagramFinder;
